@@ -1,6 +1,8 @@
-### By: Starglow {#by-starglow .unnumbered}
+# Writeup: prime-sponsorship
 
-### View original at: [starglow.net/blog/ctf/prime-sponsorship](https://starglow.net/blog/ctf/prime-sponsorship/) {#view-original-at-starglow.netblogctfprime-sponsorship .unnumbered}
+### By: Starglow
+
+### View original at: [starglow.net/blog/ctf/prime-sponsorship](https://starglow.net/blog/ctf/prime-sponsorship/)
 
 # Description
 
@@ -19,52 +21,72 @@ $$R_{q,p}=\mathbf F_{q}[x]/\bigl(x^{p}-x-1\bigr),
 $\in {-1,0,1}$) polynomials $f,g\in\mathbf Z[x]$ of degree $<p_1=211$
 are chosen such that $g\bmod 3$ is invertible in $R_{3,211}$ and
 $R_{3,223}$. For each prime length $p\in\{211,223\}$:
-$$h_p = g(3f)^{-1}\pmod{(q,x^{p}-x-1)}$$ which means one pair $(f,g)$ is
+$$
+h_p = g(3f)^{-1}\pmod{(q,x^{p}-x-1)} 
+$$ which means one pair $(f,g)$ is
 reused in two different rings. For encryption, the plaintext is a binary
 vector $r\in\{0,1\}^{211}$:
-$$c=\operatorname{Round}_3\!\bigl(h_{211}\,r\bigr)$$ where
-$\operatorname{Round}_3$ moves every coefficient to the nearest multiple
+$$
+c=\operatorname{Round}_3\!\bigl(h_{211}\,r\bigr)
+$$ 
+where $\operatorname{Round}_3$ moves every coefficient to the nearest multiple
 of 3. To decrypt, $e=(3f)\,c,$ we lift the coefficients to
 $(-\!q/2,q/2]$ and output $g^{-1}e\bmod 3$. Because $3f\,h_{211}=g$ this
 cancels and returns $r$. This is fatal, since over the product ring
 $R_{q,211}\times R_{q,223}$ we know the two residues
-$$H=(h_{211},h_{223}) =\frac{g}{3f}$$ so writing the moduli as
+$$
+H=(h_{211},h_{223}) =\frac{g}{3f}
+$$ 
+so writing the moduli as
 $\phi_{211}=x^{211}-x-1$ and $\phi_{223}=x^{223}-x-1$ the [Chinese
 Remainder
 Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem) lets
 us view $H$ as one element of:
-$$R_q=\mathbf F_q[x]/(\phi_{211}\phi_{223})$$ and what's important to
-notice is that in $\deg f,\deg g<211$ both $g$ and $3f$ are much smaller
+$$
+R_q=\mathbf F_q[x]/(\phi_{211}\phi_{223})
+$$
+and what's important tonotice is that in $\deg f,\deg g<211$ both $g$ and $3f$ are much smaller
 than the combined $\phi_{211}\phi_{223}$ (of degree 434). Recovering a
 small numerator/denominator from their ratio modulo a large polynomial
 is called a [rational reconstruction
 problem](https://en.wikipedia.org/wiki/Rational_reconstruction_(mathematics)).
-
 Now we need to turn this idea into linear algebra. We write the
 convolution-by-$h$ operator in matrix form where we let
 $C_{211},C_{223}$ be the $211\times211$ and $223\times211$ matrices
 representing multiplication by $h_{211}$, $h_{223}$. So from the
 definition of the public keys we have two linear relations:
-$$3\,C_{211}\,f-g\equiv0\pmod{q\,,\phi_{211}}$$ and:
-$$3\,C_{223}\,f-g\equiv0\pmod{q\,,\phi_{223}}$$ so we restrict the
-second congruence to the first 211 coefficients and subtract. This kills
+$$
+3\,C_{211}\,f-g\equiv0\pmod{q\,,\phi_{211}}
+$$
+and:
+$$
+3\,C_{223}\,f-g\equiv0\pmod{q\,,\phi_{223}}
+$$ 
+so we restrict the second congruence to the first 211 coefficients and subtract. This kills
 $g$ and gives us one homogeneous system over $\mathbf F_{1511}$:
-$$D\,f=0,\qquad
+$$
+D\,f=0,\qquad
 D = 3\bigl(C_{211}-C_{223}^{\small\text{(cut)}}\bigr)
-(\bmod 1511)$$ where $D$ is a $211\times211$ matrix. Then, a quick
+(\bmod 1511)
+$$
+where $D$ is a $211\times211$ matrix. Then, a quick
 modular Gaussian elimination shows that $\dim\kern.5pt\ker D = 1$. This
 means the nullspace immediately gives (up to a unit) the unique ternary
 vector $f$. All its coefficients therefore lie in $\{-1,0,1\}$which
 confirms we found what we wanted. Now with $f$ known:
-$$g = 3f\,h_{211}\pmod{(1511,\phi_{211})}$$ will have the same ternary
-property.
+$$
+g = 3f\,h_{211}\pmod{(1511,\phi_{211})}
+$$
+will have the same ternary property.
 
 Finally we need to get the last missing part, $g^{-1}\bmod 3$. Instead
 of an expensive Euclidean inverse inside a big polynomial ring we can
 solve the much smaller linear system:
-$$\bigl(\text{conv}(g\bmod 3)\bigr)\,x = (1,0,\dots,0)
-\quad\text{over }\mathbf F_{3}$$ which is the same as inverting
-$g\bmod 3$ by plain Gaussian elimination in$\mathbf F_3^{211\times211}$,
+$$
+\bigl(\text{conv}(g\bmod 3)\bigr)\,x = (1,0,\dots,0)
+\quad\text{over }\mathbf F_{3}
+$$
+which is the same as inverting $g\bmod 3$ by plain Gaussian elimination in$\mathbf F_3^{211\times211}$,
 which will return $g^{-1}\bmod 3$. Now for decrypting the given
 ciphertext we:
 
@@ -87,7 +109,7 @@ which gives us the flag:
 
     UMDCTF{no_logan_paul_here}
 
-# Appendix {#sec:append}
+# Appendix
 
 Credit: aparker
 

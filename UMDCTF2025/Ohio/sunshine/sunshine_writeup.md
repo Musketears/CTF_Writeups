@@ -1,4 +1,5 @@
 # Challenge #2 - ohio/sunshine
+## Writeup by Paradigm
 
 Category: Ohio (OSINT)
 

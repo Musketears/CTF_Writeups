@@ -1,4 +1,5 @@
 # UMDCTF 2025 Writeups [(Brainrot Version)](https://www.youtube.com/watch?v=FcuKx5edMP4&ab_channel=Macchedici%F0%9D%97%AB)
+## Brainrot by Paradigm
 
 [UMDCTF 2025](https://umdctf.io/) was hosted by the University of Maryland (TY for host) 
 

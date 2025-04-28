@@ -1,4 +1,5 @@
 # Challenge #3 - ohio/the-master
+## Writeup by Paradigm
 
 Category: Ohio (OSINT)
 
