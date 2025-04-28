@@ -1,6 +1,6 @@
 # UMDCTF 2025 Writeups
 
-UMDCTF 2025 was hosted by the University of Maryland and took place 04/25 - 04/27.
+[UMDCTF 2025](https://umdctf.io/) was hosted by the University of Maryland and took place 04/25 - 04/27. Really fun and well-balanced for all of us participating.
 
 This was the most brainrotten CTF we've competed in and the Brainrot UI was definitely the most unique UI we've seen for a CTF.
 
