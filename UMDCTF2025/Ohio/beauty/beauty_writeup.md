@@ -1,4 +1,5 @@
 # Challenge #4 - ohio/beauty
+## Writeup by Paradigm
 
 Category: Ohio (OSINT)
 

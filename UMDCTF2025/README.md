@@ -1,4 +1,5 @@
 # UMDCTF 2025 Writeups
+## Overview by Paradigm
 
 [UMDCTF 2025](https://umdctf.io/) was hosted by the University of Maryland and took place 04/25 - 04/27. Really fun and well-balanced for all of us participating.
 

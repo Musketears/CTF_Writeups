@@ -1,4 +1,5 @@
 # Challenge #5 - ohio/gerard-manley-hopkins
+## Writeup by Paradigm
 
 Category: Ohio (OSINT) 
 

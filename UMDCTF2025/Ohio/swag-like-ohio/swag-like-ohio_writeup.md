@@ -1,4 +1,5 @@
 # Challenge #1 - ohio/swag-like-ohio
+## Writeup by Paradigm
 
 Category: Ohio (OSINT)
 

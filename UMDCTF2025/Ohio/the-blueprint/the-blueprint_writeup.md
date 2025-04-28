@@ -1,4 +1,5 @@
 # Challenge #6 - ohio/the-blueprint
+## Writeup by Paradigm
 
 Category: Ohio (OSINT)
 
