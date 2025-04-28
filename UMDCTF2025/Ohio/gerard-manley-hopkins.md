@@ -1,6 +1,6 @@
 # Challenge #5 - ohio/gerard-manley-hopkins
 
-Category: Ohio (OSINT)
+Category: Ohio (OSINT) 
 
 Challenge description:
 
